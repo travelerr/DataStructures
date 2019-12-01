@@ -1,0 +1,114 @@
+/**
+ * Java Program to implement a dynamic array for learning data structures
+ * @author justinsacco
+ *
+ */
+import java.util.*;
+
+
+public class DynamicArray {
+	private ArrayList<String> al;
+	
+	/** Constructor*/
+	public DynamicArray(){	
+		al = new ArrayList<String>();
+	}
+	
+	/** Function to clear*/
+	public void clear(){
+		al.clear();
+	}
+	
+	/** Function to get size*/
+	public int size(){
+		return al.size();
+	}
+	
+	/** Function to insert*/
+	public void insert(String key){
+		al.add(key);
+	}
+	
+	/** Function to get element at index*/
+	public String get(int index){
+		if(index >= al.size())
+			return "error";
+		return al.get(index);
+	}
+	
+	/** Function to remove element*/
+	public void remove(String key){
+		al.remove(key);
+	}
+	
+	/** Function to display array*/
+	public void display(){
+		System.out.println("\nDynmic Array : " + al);
+		System.out.println();
+	}
+	
+	
+	
+	
+	
+	
+	/** Class Dynamic Array Test*/
+	public static class dynamicArrayTest{
+		private static Scanner scan;
+
+		public static void main(String[] args){
+			
+			scan = new Scanner(System.in);
+			System.out.println("Dynamic Array Test\n");
+			
+			DynamicArray da = new DynamicArray();
+			
+			char ch;
+			/* Perform Dynamic Array Operations*/
+			do{
+				System.out.println("\nDynamic Array\n");
+				System.out.println("1. insert ");
+				System.out.println("2. remove by index");
+				System.out.println("3. remove by val ");
+				System.out.println("4. clear ");
+				System.out.println("5. size ");
+				System.out.println("6. get");
+				
+				
+				int choice = scan.nextInt();
+				switch(choice){
+				case 1:
+					System.out.println("Enter value to inset");
+					da.insert(scan.next());
+					break;
+				case 2:
+					System.out.println("Enter Index");
+					da.remove(scan.next());
+					break;
+				case 3:
+					System.out.println("Enter Value");
+					da.remove(scan.next());
+					break;
+				case 4:
+					System.out.println("\nDynamic array cleared");
+					da.clear();
+					break;
+				case 5:
+					System.out.println("\nSize = " + da.size());
+					break;
+				case 6:
+					System.out.println("\nGet = " + da.get(scan.nextInt()));
+					break;
+				default :
+					System.out.println("Wrong entry \n");
+					break;
+				
+				}
+				da.display();
+				
+				System.out.println("\nDo you want to continue (Type y or n) \n");
+				ch = scan.next().charAt(0);
+			} while (ch == 'Y' || ch == 'y');
+		}
+	}
+}
